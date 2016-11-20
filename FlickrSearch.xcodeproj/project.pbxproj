@@ -16,6 +16,8 @@
 		1F37C4C31DE2177B005A18AF /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4C21DE2177B005A18AF /* NetworkController.swift */; };
 		1F37C4C71DE21A90005A18AF /* PhotoSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4C61DE21A90005A18AF /* PhotoSearchResults.swift */; };
 		1F37C4C91DE21AE8005A18AF /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4C81DE21AE8005A18AF /* PhotoController.swift */; };
+		1F37C4D61DE24E93005A18AF /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4D41DE24E93005A18AF /* PhotoCollectionViewCell.swift */; };
+		1F37C4D71DE24E93005A18AF /* PhotoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4D51DE24E93005A18AF /* PhotoHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		1F37C4C21DE2177B005A18AF /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		1F37C4C61DE21A90005A18AF /* PhotoSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSearchResults.swift; sourceTree = "<group>"; };
 		1F37C4C81DE21AE8005A18AF /* PhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
+		1F37C4D41DE24E93005A18AF /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F37C4D51DE24E93005A18AF /* PhotoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 				1F37C4C51DE21A33005A18AF /* Model */,
 				1F37C4CA1DE21B04005A18AF /* ModelController */,
 				1F37C4C41DE21A28005A18AF /* OtherController */,
+				1F37C4D81DE24E96005A18AF /* View */,
 				1F37C4BF1DE21492005A18AF /* ViewController */,
 				1F37C4BB1DE2109B005A18AF /* Resources */,
 			);
@@ -122,6 +127,15 @@
 				1F37C4C81DE21AE8005A18AF /* PhotoController.swift */,
 			);
 			name = ModelController;
+			sourceTree = "<group>";
+		};
+		1F37C4D81DE24E96005A18AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F37C4D41DE24E93005A18AF /* PhotoCollectionViewCell.swift */,
+				1F37C4D51DE24E93005A18AF /* PhotoHeaderView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +215,9 @@
 				1F37C4C31DE2177B005A18AF /* NetworkController.swift in Sources */,
 				1F37C4C11DE214A8005A18AF /* Photo.swift in Sources */,
 				1F37C4BE1DE21189005A18AF /* FlickrPhotoViewController.swift in Sources */,
+				1F37C4D61DE24E93005A18AF /* PhotoCollectionViewCell.swift in Sources */,
 				1F37C4AA1DE20F53005A18AF /* AppDelegate.swift in Sources */,
+				1F37C4D71DE24E93005A18AF /* PhotoHeaderView.swift in Sources */,
 				1F37C4C71DE21A90005A18AF /* PhotoSearchResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +382,7 @@
 				1F37C4BA1DE20F53005A18AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -50,6 +50,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     func updateViews() {
         
         photoImageView.image = photo?.thumbnail
+        titleLabel.text = photo?.title
     }
     
 }
