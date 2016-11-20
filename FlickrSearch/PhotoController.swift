@@ -6,7 +6,7 @@
 //  Copyright © 2016 JeffCryst. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PhotoController {
     
@@ -43,7 +43,7 @@ class PhotoController {
                 return
             }
             
-            guard let data = data {
+            guard let data = data else {
                 
                 let apiError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: "Unknown API response."])
                 OperationQueue.main.addOperation ({
@@ -100,9 +100,20 @@ class PhotoController {
                 return
             }
                 
+                guard let photosContainer = resultsDictionary["photos"] as? [String: AnyObject]
+                    , let photosReceived = photosContainer["photo"] as? [[String: AnyObject]] else {
+                        
+                        let apiError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: "Unknown API response."])
+                        OperationQueue.main.addOperation ({
+                            completion(nil, apiError)
+                        })
+                        
+                        return   
+                }
+                
             var photos = [Photo]()
                 
-                for currentPhoto in photos {
+                for currentPhoto in photosReceived {
                     
                     guard let farm = currentPhoto["farm"] as? Int
                         , let photoID = currentPhoto["id"] as? String
