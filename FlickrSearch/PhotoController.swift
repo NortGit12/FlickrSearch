@@ -5,7 +5,6 @@
 //  Created by Jeff Norton on 11/20/16.
 //  Copyright © 2016 JeffCryst. All rights reserved.
 //
-
 import UIKit
 
 class PhotoController {
@@ -92,7 +91,7 @@ class PhotoController {
                     })
                     
                     return
-                
+                    
                 default:
                     
                     let apiError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: "Unknown API response."])
@@ -101,7 +100,7 @@ class PhotoController {
                     })
                     
                     return
-            }
+                }
                 
                 guard let photosContainer = resultsDictionary["photos"] as? [String: AnyObject]
                     , let photosReceived = photosContainer["photo"] as? [[String: AnyObject]] else {
@@ -114,7 +113,7 @@ class PhotoController {
                         return   
                 }
                 
-            var photos = [Photo]()
+                var photos = [Photo]()
                 
                 for currentPhoto in photosReceived {
                     

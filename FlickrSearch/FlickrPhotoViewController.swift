@@ -5,7 +5,6 @@
 //  Created by Jeff Norton on 11/20/16.
 //  Copyright © 2016 JeffCryst. All rights reserved.
 //
-
 import UIKit
 
 class FlickrPhotoViewController: UIViewController {
@@ -52,10 +51,9 @@ class FlickrPhotoViewController: UIViewController {
     //==================================================
     // MARK: - General
     //==================================================
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 }
@@ -69,7 +67,6 @@ private extension FlickrPhotoViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-
 extension FlickrPhotoViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -150,7 +147,6 @@ extension FlickrPhotoViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-
 extension FlickrPhotoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -162,7 +158,6 @@ extension FlickrPhotoViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-
 extension FlickrPhotoViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -203,7 +198,6 @@ extension FlickrPhotoViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UISearchBarDelegate
-
 extension FlickrPhotoViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -232,7 +226,7 @@ extension FlickrPhotoViewController: UISearchBarDelegate {
                         self.resultsCollectionView.reloadData()
                     }
                     
-//                    self.resultsCollectionView.reloadData()
+                    //                    self.resultsCollectionView.reloadData()
                 }
             }
         }
@@ -240,7 +234,6 @@ extension FlickrPhotoViewController: UISearchBarDelegate {
         searchBar.text = nil
     }
 }
-
 
 
 

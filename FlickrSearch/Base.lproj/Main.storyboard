@@ -75,7 +75,7 @@
                                             <constraint firstItem="SeO-lY-9lF" firstAttribute="centerX" secondItem="iA5-es-EhW" secondAttribute="centerX" id="vYZ-lk-J0B"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="activityIndicator" destination="SeO-lY-9lF" id="qTS-tH-6be"/>
+                                            <outlet property="activityIndicator" destination="SeO-lY-9lF" id="nrw-2t-ia3"/>
                                             <outlet property="photoImageView" destination="mYN-4n-6RF" id="Vjq-jb-G2d"/>
                                             <outlet property="titleLabel" destination="BR4-NM-oZc" id="Uxq-0q-BQt"/>
                                         </connections>
