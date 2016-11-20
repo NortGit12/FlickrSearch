@@ -49,13 +49,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYN-4n-6RF">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR4-NM-oZc">
-                                                    <rect key="frame" x="18" y="164" width="164" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BR4-NM-oZc">
+                                                    <rect key="frame" x="18" y="170.5" width="164" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SeO-lY-9lF">
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SeO-lY-9lF">
                                                     <rect key="frame" x="82" y="82" width="37" height="37"/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -75,12 +75,13 @@
                                             <constraint firstItem="SeO-lY-9lF" firstAttribute="centerX" secondItem="iA5-es-EhW" secondAttribute="centerX" id="vYZ-lk-J0B"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="SeO-lY-9lF" id="qTS-tH-6be"/>
                                             <outlet property="photoImageView" destination="mYN-4n-6RF" id="Vjq-jb-G2d"/>
                                             <outlet property="titleLabel" destination="BR4-NM-oZc" id="Uxq-0q-BQt"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoHeaderView" id="YzA-Ni-K2T" customClass="PhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoHeaderView" id="YzA-Ni-K2T" customClass="PhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
