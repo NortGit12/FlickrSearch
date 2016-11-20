@@ -39,7 +39,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resultPhotoCell" id="iA5-es-EhW">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resultPhotoCell" id="iA5-es-EhW" customClass="PhotoCollectionViewCell" customModule="FlickrSearch" customModuleProvider="target">
                                         <rect key="frame" x="88" y="50" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -74,14 +74,18 @@
                                             <constraint firstItem="SeO-lY-9lF" firstAttribute="centerY" secondItem="iA5-es-EhW" secondAttribute="centerY" id="ozC-8N-bJS"/>
                                             <constraint firstItem="SeO-lY-9lF" firstAttribute="centerX" secondItem="iA5-es-EhW" secondAttribute="centerX" id="vYZ-lk-J0B"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="mYN-4n-6RF" id="Vjq-jb-G2d"/>
+                                            <outlet property="titleLabel" destination="BR4-NM-oZc" id="Uxq-0q-BQt"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YzA-Ni-K2T">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoHeaderView" id="YzA-Ni-K2T" customClass="PhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results Section Header" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-wd-qYo">
-                                            <rect key="frame" x="32.5" y="7" width="310" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-wd-qYo">
+                                            <rect key="frame" x="97.5" y="7" width="180.5" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -92,6 +96,9 @@
                                         <constraint firstItem="4DM-wd-qYo" firstAttribute="centerY" secondItem="YzA-Ni-K2T" secondAttribute="centerY" id="66y-S9-VKO"/>
                                         <constraint firstItem="4DM-wd-qYo" firstAttribute="centerX" secondItem="YzA-Ni-K2T" secondAttribute="centerX" id="IXn-1V-YdH"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sectionLabel" destination="4DM-wd-qYo" id="ayk-33-irR"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="den-Th-yXt" id="2o8-2S-FKx"/>
