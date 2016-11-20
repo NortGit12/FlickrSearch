@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		1F37C4AA1DE20F53005A18AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4A91DE20F53005A18AF /* AppDelegate.swift */; };
-		1F37C4AC1DE20F53005A18AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4AB1DE20F53005A18AF /* ViewController.swift */; };
 		1F37C4AF1DE20F53005A18AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F37C4AD1DE20F53005A18AF /* Main.storyboard */; };
 		1F37C4B11DE20F53005A18AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F37C4B01DE20F53005A18AF /* Assets.xcassets */; };
 		1F37C4B41DE20F53005A18AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F37C4B21DE20F53005A18AF /* LaunchScreen.storyboard */; };
+		1F37C4BE1DE21189005A18AF /* FlickrPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F37C4BD1DE21189005A18AF /* FlickrPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F37C4A61DE20F53005A18AF /* FlickrSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F37C4A91DE20F53005A18AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F37C4AB1DE20F53005A18AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F37C4AE1DE20F53005A18AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F37C4B01DE20F53005A18AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F37C4B31DE20F53005A18AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F37C4B51DE20F53005A18AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F37C4BD1DE21189005A18AF /* FlickrPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +55,29 @@
 			isa = PBXGroup;
 			children = (
 				1F37C4A91DE20F53005A18AF /* AppDelegate.swift */,
-				1F37C4AB1DE20F53005A18AF /* ViewController.swift */,
-				1F37C4AD1DE20F53005A18AF /* Main.storyboard */,
-				1F37C4B01DE20F53005A18AF /* Assets.xcassets */,
-				1F37C4B21DE20F53005A18AF /* LaunchScreen.storyboard */,
-				1F37C4B51DE20F53005A18AF /* Info.plist */,
+				1F37C4BD1DE21189005A18AF /* FlickrPhotoViewController.swift */,
+				1F37C4BB1DE2109B005A18AF /* Resources */,
 			);
 			path = FlickrSearch;
+			sourceTree = "<group>";
+		};
+		1F37C4BB1DE2109B005A18AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F37C4B01DE20F53005A18AF /* Assets.xcassets */,
+				1F37C4B51DE20F53005A18AF /* Info.plist */,
+				1F37C4BC1DE210A2005A18AF /* Storyboards */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1F37C4BC1DE210A2005A18AF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1F37C4B21DE20F53005A18AF /* LaunchScreen.storyboard */,
+				1F37C4AD1DE20F53005A18AF /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F37C4AC1DE20F53005A18AF /* ViewController.swift in Sources */,
+				1F37C4BE1DE21189005A18AF /* FlickrPhotoViewController.swift in Sources */,
 				1F37C4AA1DE20F53005A18AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
