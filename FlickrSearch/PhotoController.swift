@@ -15,7 +15,6 @@ class PhotoController {
     //==================================================
     
     let apiKey = "3d9428f4ec04aa56ff264ce4daa08a4e"
-    let flickrSearchURL = URL(string: "https://api.flickr.com/services/rest/")
     let processingQueue = OperationQueue()
     let resultsPerPage = 25
     
@@ -25,16 +24,14 @@ class PhotoController {
     
     func searchFlickr(forSearchTerm searchTerm: String, completion: @escaping (_ results: PhotoSearchResults?, _ error: NSError?) -> Void) {
         
-        guard let flickrSearchURL = flickrSearchURL else {
+        guard let searchURL = searchFlickerURL(forSearchTerm: searchTerm) else {
             
-            NSLog("Error unwrapping the Flickr Search URL.")
-            completion(nil, nil)
+            let apiError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: "Unknown API response."])
+            completion(nil, apiError as NSError?)
             return
         }
         
-        let urlParameters: [String: String] = ["method": "flickr.photos.search", "api_key": apiKey, "text": searchTerm, "per_page": String(resultsPerPage), "format": "json", "nojsoncallback": "1"]
-        
-        NetworkController.performRequest(for: flickrSearchURL, httpMethod: .Get, urlParameters: urlParameters) { (data, error) in
+        NetworkController.performRequest(for: searchURL, httpMethod: .Get) { (data, error) in
             
             if let _ = error {
                 
@@ -93,14 +90,14 @@ class PhotoController {
                     
                     return
                 
-                default:
-                    
-                    let apiError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: "Unknown API response."])
-                    OperationQueue.main.addOperation ({
-                        completion(nil, apiError)
-                    })
-                    
-                    return
+            default:
+                
+                let apiError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: "Unknown API response."])
+                OperationQueue.main.addOperation ({
+                    completion(nil, apiError)
+                })
+                
+                return
             }
                 
                 guard let photosContainer = resultsDictionary["photos"] as? [String: AnyObject]
@@ -121,26 +118,24 @@ class PhotoController {
                     guard let farm = currentPhoto["farm"] as? Int
                         , let photoID = currentPhoto["id"] as? String
                         , let secret = currentPhoto["secret"] as? String
-                        , let server = currentPhoto["server"] as? String
-                        , let title = currentPhoto["title"] as? String else {
+                        , let server = currentPhoto["server"] as? String else {
                             
                             break
                     }
                     
-                    let photo = Photo(farm: farm, photoID: photoID, secret: secret, server: server, title: title)
+                    let photo = Photo(farm: farm, photoID: photoID, secret: secret, server: server)
                     
-                    if let url = photo.imageURL()
-                        , let imageData = try? Data(contentsOf: url as URL)
-                        , let image = UIImage(data: imageData) {
-                        
-                        photo.thumbnail = image
-                        
-                    } else {
-                        
-                        photo.thumbnail = UIImage(named: "photo-unavailable")
+                    guard let url = photo.imageURL()
+                        , let imageData = try? Data(contentsOf: url as URL) else {
+                            
+                            break
                     }
                     
-                    photos.append(photo)
+                    if let image = UIImage(data: imageData) {
+                        
+                        photo.thumbnail = image
+                        photos.append(photo)
+                    }
                 }
                 
                 OperationQueue.main.addOperation ({
@@ -149,11 +144,25 @@ class PhotoController {
                 
             } catch {
                 
-                NSLog("Error: \(error)")
                 completion(nil, nil)
                 return
             }
         }
+    }
+    
+    fileprivate func searchFlickerURL(forSearchTerm searchTerm: String) -> URL? {
+        
+        guard let escapedSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics) else {
+            return nil
+        }
+        
+        let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(self.apiKey)&text=\(escapedSearchTerm)&per_page=\(self.resultsPerPage)&format=json&nojsoncallback=1"
+        
+        guard let url = URL(string: urlString) else {
+            return nil
+        }
+        
+        return url
     }
 }
 

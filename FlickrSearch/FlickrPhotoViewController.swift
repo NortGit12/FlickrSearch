@@ -91,9 +91,8 @@ extension FlickrPhotoViewController: UICollectionViewDataSource {
             
         case UICollectionElementKindSectionHeader:
             
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: "PhotoHeaderView",
-                                                                             for: indexPath) as! PhotoHeaderView
+            let headerView = collectionView.dequeueReusableCell(withReuseIdentifier: "photoHeaderView",
+                                                                for: indexPath) as! PhotoHeaderView
             
             headerView.sectionLabel.text = searches[(indexPath as NSIndexPath).section].searchTerm
             
@@ -116,9 +115,7 @@ extension FlickrPhotoViewController: UICollectionViewDataSource {
         cell.activityIndicator.stopAnimating()
         
         guard indexPath as NSIndexPath? == largePhotoIndexPath else {
-            
-            cell.photo = currentPhoto
-            
+            cell.photoImageView.image = currentPhoto.thumbnail
             return cell
         }
         
@@ -141,7 +138,7 @@ extension FlickrPhotoViewController: UICollectionViewDataSource {
             if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
                 , indexPath == self.largePhotoIndexPath as? IndexPath {
                 
-                cell.photo = loadedPhoto
+                cell.photoImageView.image = loadedPhoto?.largeImage
             }
         }
         
@@ -217,22 +214,20 @@ extension FlickrPhotoViewController: UISearchBarDelegate {
             
             photoController.searchFlickr(forSearchTerm: searchTerm) { (results, error) in
                 
+                activityIndicator.removeFromSuperview()
+                
+                if let error = error {
+                    NSLog("Error: \(error.localizedDescription)")
+                    return
+                }
+                
+                if let results = results {
+                    
+                    NSLog("Found \(results.searchResults.count) results matching \"\(results.searchTerm)\"")
+                }
+                
                 DispatchQueue.main.async {
-                    activityIndicator.removeFromSuperview()
-                    
-                    if let error = error {
-                        NSLog("Error: \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    if let results = results {
-                        
-                        NSLog("Found \(results.searchResults.count) results matching \"\(results.searchTerm)\"")
-                        self.searches.insert(results, at: 0)
-                        self.resultsCollectionView.reloadData()
-                    }
-                    
-//                    self.resultsCollectionView.reloadData()
+                    self.resultsCollectionView.reloadData()
                 }
             }
         }

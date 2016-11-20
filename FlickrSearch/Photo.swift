@@ -20,19 +20,17 @@ class Photo {
     let secret: String
     let server: String
     var thumbnail: UIImage?
-    let title: String
     
     //==================================================
     // MARK: - Initializers
     //==================================================
     
-    init(farm: Int, photoID: String, secret: String, server: String, title: String) {
+    init(farm: Int, photoID: String, secret: String, server: String) {
         
         self.farm = farm
         self.photoID = photoID
         self.secret = secret
         self.server = server
-        self.title = title
     }
     
     //==================================================
@@ -41,7 +39,7 @@ class Photo {
     
     func imageURL(ofSize size: String = "m") -> URL? {
         
-        if let url = URL(string: "https://farm\(self.farm).staticflickr.com/\(server)/\(self.photoID)_\(secret)_\(size).jpg") {
+        if let url = URL(string: "https://farm\(self.farm).staticflickr.com/\(server)_\(self.photoID)_\(secret)_\(size).jpg") {
             return url
         }
         
